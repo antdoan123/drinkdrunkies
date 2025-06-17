@@ -1,105 +1,114 @@
-import { motion, AnimatePresence } from "framer-motion"
-import { animated, useSpring } from 'react-spring';
-import Link from 'next/link'
-import { useState, useEffect } from "react";
+import { ArrowRight, Star, Music, Zap } from "lucide-react"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import Link from "next/link"
 
-const calc = (x, y) => [
-    -(y - window.innerHeight / 2) / 200,
-    -(x - window.innerWidth / 2) / 200,
-    1.05,
-  ];
-  const trans = (x, y, s) =>
-    `perspective(200px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
-
-function Hero() {
-  const [loopNum, setLoopNum] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState('');
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
-  const toRotate = [ "Businesses", "Influencers", "Brands" ];
-  const period = 1000;
-
-    const [props, set] = useSpring(() => ({
-        xys: [0, 0, 1],
-        config: { mass: 2, tension: 350, friction: 40 },
-      }));
-
-      useEffect(() => {
-        let ticker = setInterval(() => {
-          tick();
-        }, delta);
-    
-        return () => { clearInterval(ticker) };
-      }, [text])
-    
-      const tick = () => {
-        let i = loopNum % toRotate.length;
-        let fullText = toRotate[i];
-        let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
-    
-        setText(updatedText);
-    
-        if (isDeleting) {
-          setDelta(prevDelta => prevDelta / 2);
-        }
-    
-        if (!isDeleting && updatedText === fullText) {
-          setIsDeleting(true);
-          setIndex(prevIndex => prevIndex - 1);
-          setDelta(period);
-        } else if (isDeleting && updatedText === '') {
-          setIsDeleting(false);
-          setLoopNum(loopNum + 1);
-          setIndex(1);
-          setDelta(500);
-        } else {
-          setIndex(prevIndex => prevIndex + 1);
-        }
-      }
+export default function Hero() {
   return (
-    <div className='h-screen mt-20 mx-auto p-4 w-full '>
-          <motion.div
-            as="div"
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            exit={{ y: 10, opacity: 0 }}
-          >     
-        <div className="flex flex-col h-full text-white justify-center items-center text-center">
-          {/* dashboard */}
-              <h1 className='flex-1 font-semibold text-5xl md:text-6xl lg:leading-[62px] leading-[52px]'>
-                The Leading <br className='sm:block hidden'/> {" "}
-                Social Media Resources <br className='sm:block hidden'/>
-                For <span className="txt-rotate"><span className="wrap">{text}</span></span>
+    <section className="relative px-4 pt-20 pb-12 md:pt-32 md:pb-24 overflow-hidden">
+      {/* Animated background elements - smaller on mobile */}
+      <div className="absolute inset-0 opacity-10 md:opacity-20">
+        <div className="absolute top-20 left-4 md:left-10 w-20 h-20 md:w-32 md:h-32 bg-lime-500 rounded-full blur-2xl md:blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-4 md:right-10 w-24 h-24 md:w-40 md:h-40 bg-pink-500 rounded-full blur-2xl md:blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-16 h-16 md:w-24 md:h-24 bg-cyan-500 rounded-full blur-xl md:blur-2xl animate-pulse delay-500"></div>
+      </div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
+          <div className="space-y-6 md:space-y-8 text-center lg:text-left">
+            <div className="space-y-3 md:space-y-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+                GET ABSOLUTELY
+                <span className="block text-transparent bg-gradient-to-r from-lime-400 to-cyan-400 bg-clip-text">
+                  WASTED! 🍻💀
+                </span>
               </h1>
-            <div className='flex w-[100%] md:w-[50%]'>
-              <p className='flex-1 text-xl mt-10 '>Eeesshh Media provide you a one stop platform to Develop your Website, Automated Hosting, Optimize SEO, and Provide Social Media Marketing</p>
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0">
+                We're DRUNKIES - the wildest mobile bartending crew that'll turn your boring gathering into an INSANE
+                party! Premium drinks, sick vibes, and memories you probably won't remember! 🔥🎉
+              </p>
             </div>
-            <Link href="/">
-              <btn className='flex hover:scale-105 transition duration-200 ease-in-out hover:text-gray-200 hover:cursor-pointer rounded-lg py-2 px-8 bg-white mt-10 shadow-lg'><span className='text-[#5865F2] font-bold text-2xl'>Get Started</span></btn>
-            </Link>
 
-         <div className='flex items-center justify-center w-full h-full '>
+            <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row sm:justify-center lg:justify-start">
+<Button
+  asChild
+  size="lg"
+  className="bg-gradient-to-r from-lime-500 to-cyan-500 hover:from-lime-400 hover:to-cyan-400 text-black font-bold px-6 sm:px-8 py-3 text-base sm:text-lg shadow-lg shadow-lime-500/25 w-full sm:w-auto"
+>
+  <Link href="/contact">
+    LET'S GET WASTED! 🚀
+    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+  </Link>
+</Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-lime-500 text-lime-400 hover:bg-lime-500/10 px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto"
+              >
+                See The Madness 👀
+              </Button>
+            </div>
 
-         <animated.img
-                  src="https://lh3.googleusercontent.com/m-c08br1k0exO4ZcgGTTZE3zzzJmqOplHDPzthuMdwY4DSzZTYBSVcmkya1RdBMsbuEsV4b3Pj9V_AFWUw=s340"
-                  alt="hero"
-                  draggable={false}
-                  onMouseMove={({ clientX: x, clientY: y }) => set({ xys: [-(y - window.innerHeight / 2) / 200, -(x - window.innerWidth / 2) / 200, 1.05] })}
-                  onMouseLeave={() => set({ xys: [0, 0, 1] })}
-                  style={{ opacity:0.9, transform: props.xys.interpolate((x, y, s) => `perspective(200px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`) }}
-                  className="hover:drop-shadow-md "
-                />
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 pt-4 justify-center lg:justify-start">
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 fill-lime-400 text-lime-400" />
+                  ))}
+                </div>
+                <span className="text-gray-300 font-medium text-sm sm:text-base">People go CRAZY for us!</span>
+              </div>
+              <div className="text-gray-300 text-center sm:text-left">
+                <span className="font-bold text-xl sm:text-2xl text-lime-400">NEW</span>
+                <span className="ml-1 text-sm sm:text-base">But Already Legendary!</span>
+              </div>
+            </div>
+          </div>
 
-         </div>
-         {/* dashboard */}  
+          <div className="relative mt-8 lg:mt-0">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl border-2 border-lime-500/30 mx-auto max-w-md lg:max-w-none">
+              <Image
+                src="/placeholder.svg?height=600&width=500"
+                alt="Epic party with amazing cocktails"
+                width={500}
+                height={600}
+                className="object-cover w-full h-[400px] sm:h-[500px] lg:h-[600px]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            </div>
 
+            {/* Floating Cards - adjusted for mobile */}
+            <Card className="absolute -left-2 sm:-left-4 top-8 sm:top-16 bg-gray-900/95 backdrop-blur-sm border-lime-500/30 shadow-lg shadow-lime-500/20 w-40 sm:w-auto">
+              <CardContent className="p-3 sm:p-4">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="bg-gradient-to-r from-lime-500 to-cyan-500 p-1.5 sm:p-2 rounded-full">
+                    <Music className="h-4 w-4 sm:h-5 sm:w-5 text-black" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-white text-xs sm:text-sm">PARTY SETUP</p>
+                    <p className="text-xs text-gray-300">Ready in 15 mins!</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
+            <Card className="absolute -right-2 sm:-right-4 bottom-8 sm:bottom-16 bg-gray-900/95 backdrop-blur-sm border-pink-500/30 shadow-lg shadow-pink-500/20 w-40 sm:w-auto">
+              <CardContent className="p-3 sm:p-4">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="bg-gradient-to-r from-pink-500 to-purple-500 p-1.5 sm:p-2 rounded-full">
+                    <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-white text-xs sm:text-sm">INSANE VIBES</p>
+                    <p className="text-xs text-gray-300">Energy: MAX!</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-        </motion.div> 
-    </div>
+      </div>
+    </section>
   )
 }
-
-export default Hero

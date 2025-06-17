@@ -8,6 +8,8 @@ import Features from './components/Features'
 import Hero from './components/Hero'
 import Contact from './components/Contact'
 import Services from './components/Services';
+import Navbar from './components/navbar';
+import Footer from './components/Footer';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -34,15 +36,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='flex flex-col justify-center items-center text-black w-full max-w-7xl mx-auto'>
+      <main className='flex flex-col justify-center items-center bg-black w-full  mx-auto'>
 
-      
-        {/* Features */}
+      <Navbar/>
+      <Hero/>
         <Features></Features>
-        <Services></Services>
-        <Contact></Contact>
-        {/* Features */}
-      
+        <Services/>
+        <Contact></Contact>      
+        <Footer/>
       </main>
     </>
   )

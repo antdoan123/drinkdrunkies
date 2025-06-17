@@ -17,27 +17,8 @@ const MyApp = ({ Component, pageProps }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <div className=' text-black min-h-screen '>
 
-          <div className='bg-gradient-to-b from-[#5865F2] to-pink-200 '>
-            <Navbar></Navbar>
-            <Hero></Hero>
-          </div>
-
-
-          <div className='max-w-7xl mx-auto '>
-          <AnimatePresence>
             <Component {...pageProps} />
-            
-          </AnimatePresence>
-          </div>
-
-          <div className='bg-gradient-to-b from-pink-300 to-[#5865F2] '>
-            <Footer></Footer>
-          </div>
-
-
-        </div>
 
     </>
   )

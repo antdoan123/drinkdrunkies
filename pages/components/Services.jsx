@@ -3,6 +3,7 @@ import { animated, useSpring } from "react-spring";
 import { AiOutlineTool, AiOutlineArrowRight } from "react-icons/ai";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 200,
   -(x - window.innerWidth / 2) / 200,
@@ -18,157 +19,76 @@ function Services() {
   }));
 
   return (
-    <div name='services' className="h-full mt-20 mx-auto p-4 w-full">
-      <motion.div
-        initial={{opacity: 0 }}
-        whileInView={{opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="flex items-center justify-center mb-10 md:mb-32"
-      >
-        <h1 className="text-4xl md:text-5xl font-bold text-black">
-          From start to end.
-        </h1>
-      </motion.div>
-      
-      <motion.div
-                  initial={{x: 100, opacity: 0 }}
-                  whileInView={{x:0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1 }}
-                  className="flex flex-col lg:flex-row justify-center items-center mb-10 md:mb-32"
-                  >
-        <div className="flex-1 flex-start flex-col space-y-8 w-full ">
-          <animated.img
-            src="codesnippet.png"
-            alt="hero"
-            draggable={false}
-            onMouseMove={({ clientX: x, clientY: y }) =>
-              set({
-                xys: [
-                  -(y - window.innerHeight / 2) / 200,
-                  -(x - window.innerWidth / 2) / 200,
-                  1.05,
-                ],
-              })
-            }
-            onMouseLeave={() => set({ xys: [0, 0, 1] })}
-            style={{
-              opacity: 0.9,
-              transform: props.xys.interpolate(
-                (x, y, s) =>
-                  `perspective(200px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
-              ),
-            }}
-            className="rounded-lg shadow-xl "
-          />
-        </div>
+<section className="bg-black py-16 px-4 text-white">
+  <div className="max-w-6xl mx-auto text-center">
+    <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+      CHOOSE YOUR LEVEL OF MAYHEM 🍾💣
+    </h2>
+    <p className="text-gray-400 mb-12">
+      From a slight buzz to full-blown blackout, we’ve got your party covered.
+    </p>
 
-        <div className="flex-1 justify-center items-center md:ml-10 ml-0 mt-10 lg:mt-0">
-          <div className="flex-1 flex-start flex-col space-y-8 w-full ">
-            <h1 className="text-2xl md:text-4xl leading-sm md:leading-[52px] font-bold w-full text-black">
-              Starting with website development
-            </h1>
-            <p className="flex text-lg md:text-xl text-neutral-500 max-w-[470px]">
-              Eeesshh Media designs, develops and deploys websites. They first
-              understand the client&apos;s requirements, create an intuitive design,
-              and use advanced technologies for development. Rigorous testing is
-              done before deployment, and Eeesshh Media collaborates with the
-              client throughout the process to ensure a high-quality and
-              customized end product.
-            </p>
-            <Link href="/" className="hidden lg:flex">
-              <btn className="flex items-center hover:scale-105 transition duration-200 ease-in-out hover:text-gray-200 hover:cursor-pointer rounded-lg py-2 px-8 bg-[#5865F2] shadow-lg text-white gap-2">
-                <p>Get Started </p>
-                <AiOutlineArrowRight></AiOutlineArrowRight>
-              </btn>
-            </Link>
-          </div>
+    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {/* The Buzz */}
+      <div className="bg-gradient-to-tr from-lime-600 to-cyan-500 rounded-2xl p-6 shadow-lg flex flex-col justify-between">
+        <div>
+          <h3 className="text-2xl font-bold mb-3">THE BUZZ 🐝</h3>
+          <p className="text-white/90 mb-4">Perfect for small gatherings or chill get-togethers.</p>
+          <ul className="text-sm text-white/80 space-y-2 mb-6 text-left">
+            <li>✔️ 1 Licensed Bartender (3 hrs)</li>
+            <li>✔️ Basic Bar Setup</li>
+            <li>✔️ Bar Tools & Ice Bucket</li>
+            <li>✔️ Disposable Cups & Napkins</li>
+            <li>❗ Client provides alcohol</li>
+          </ul>
         </div>
-      </motion.div>
+        <p className="text-lg font-bold mb-3">$450+</p>
+        <Button className="bg-black text-lime-400 hover:bg-white/10 w-full">BOOK THIS LEVEL</Button>
+      </div>
 
-      <motion.div
-                  initial={{x: -100, opacity: 0 }}
-                  whileInView={{x:0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1 }}
-                  className="flex flex-col lg:flex-row justify-center items-center mb-10 md:mb-32"
-                  >
-        <div className="lg:hidden flex-1 flex-start flex-col space-y-8 w-full ">
-          <animated.img
-            src="performances.png"
-            alt="hero"
-            draggable={false}
-            onMouseMove={({ clientX: x, clientY: y }) =>
-              set({
-                xys: [
-                  -(y - window.innerHeight / 2) / 200,
-                  -(x - window.innerWidth / 2) / 200,
-                  1.05,
-                ],
-              })
-            }
-            onMouseLeave={() => set({ xys: [0, 0, 1] })}
-            style={{
-              opacity: 0.9,
-              transform: props.xys.interpolate(
-                (x, y, s) =>
-                  `perspective(200px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
-              ),
-            }}
-            className="rounded-lg shadow-xl "
-          />
+      {/* The Mayhem */}
+      <div className="bg-gradient-to-tr from-pink-600 to-red-500 rounded-2xl p-6 shadow-lg flex flex-col justify-between border-4 border-white">
+        <div>
+          <h3 className="text-2xl font-bold mb-3">THE MAYHEM 🎉</h3>
+          <p className="text-white/90 mb-4">Level up the chaos for birthdays, weddings, and wild nights.</p>
+          <ul className="text-sm text-white/80 space-y-2 mb-6 text-left">
+            <li>✔️ 1–2 Bartenders (4–5 hrs)</li>
+            <li>✔️ Premium Bar Setup</li>
+            <li>✔️ Signature Drink Menu (up to 4)</li>
+            <li>✔️ Mixers, Ice, Garnishes</li>
+            <li>✔️ Setup & Cleanup</li>
+            <li>❗ Client provides alcohol</li>
+          </ul>
         </div>
-        <div className="flex-1 justify-center items-center md:ml-10 ml-0 mt-10 lg:mt-0">
-          <div className="flex-1 flex-start flex-col space-y-8 w-full ">
-            <h1 className="text-2xl md:text-4xl leading-sm md:leading-[52px] font-bold w-full text-black">
-              Optimizing Speed and Performances
-            </h1>
-            <p className="flex text-lg md:text-xl text-neutral-500 max-w-[470px]">
-              Eeesshh Media optimizes website performance and speed by using the
-              latest web technologies and industry best practices. They conduct
-              thorough research to identify relevant keywords and phrases and
-              integrate them into the website&apos;s content, meta descriptions, and
-              titles. Eeesshh Media also optimizes the website&apos;s structure and
-              content to improve search engine ranking, helping clients reach
-              their target audience and achieve their online goals.
-            </p>
-            <Link href="/" className="hidden lg:flex">
-              <btn className="flex items-center hover:scale-105 transition duration-200 ease-in-out hover:text-gray-200 hover:cursor-pointer rounded-lg py-2 px-8 bg-[#5865F2] shadow-lg text-white gap-2">
-                <p>Get Started </p>
-                <AiOutlineArrowRight></AiOutlineArrowRight>
-              </btn>
-            </Link>
-          </div>
-        </div>
+        <p className="text-lg font-bold mb-3">$850+</p>
+        <Button className="bg-black text-pink-400 hover:bg-white/10 w-full">BOOK THIS LEVEL</Button>
+      </div>
 
-        <div className="hidden lg:flex flex-1 flex-end flex-col space-y-8 w-full  ">
-          <animated.img
-            src="performances.png"
-            alt="hero"
-            draggable={false}
-            onMouseMove={({ clientX: x, clientY: y }) =>
-              set({
-                xys: [
-                  -(y - window.innerHeight / 2) / 200,
-                  -(x - window.innerWidth / 2) / 200,
-                  1.05,
-                ],
-              })
-            }
-            onMouseLeave={() => set({ xys: [0, 0, 1] })}
-            style={{
-              opacity: 0.9,
-              transform: props.xys.interpolate(
-                (x, y, s) =>
-                  `perspective(200px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
-              ),
-            }}
-            className="rounded-lg shadow-xl "
-          />
+      {/* The Blackout */}
+      <div className="bg-gradient-to-tr from-yellow-500 via-orange-500 to-red-600 rounded-2xl p-6 shadow-lg flex flex-col justify-between">
+        <div>
+          <h3 className="text-2xl font-bold mb-3">THE BLACKOUT 💀</h3>
+          <p className="text-white/90 mb-4">Our full-throttle party takeover. Go big or go home.</p>
+          <ul className="text-sm text-white/80 space-y-2 mb-6 text-left">
+            <li>✔️ 2+ Bartenders (5+ hrs)</li>
+            <li>✔️ Themed or LED Bar Setup</li>
+            <li>✔️ Full Signature Drink Menu</li>
+            <li>✔️ Premium Mixers + Garnishes</li>
+            <li>✔️ Servers or Cocktail Assistants</li>
+            <li>✔️ Optional Alcohol Add-On*</li>
+          </ul>
         </div>
-      </motion.div>
+        <p className="text-lg font-bold mb-3">$1500+</p>
+        <Button className="bg-black text-yellow-300 hover:bg-white/10 w-full">BOOK THIS LEVEL</Button>
+      </div>
     </div>
+
+    <p className="text-xs text-gray-500 mt-8">
+      *Alcohol add-on availability depends on local laws. Ask us what’s possible in your area!
+    </p>
+  </div>
+</section>
+
   );
 }
 

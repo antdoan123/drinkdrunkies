@@ -1,59 +1,52 @@
-import React from 'react'
-import { useRef, useState } from 'react';
-import { motion } from 'framer-motion'
+import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
-const Contact = () => {
-    const [sent, setSent] = useState(false)
-
-    const senderNameRef = useRef("")
-    const senderEmailRef = useRef("")
-    const messageRef = useRef("")
- 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        const emailBody = {
-            subject: `EeesshhMedia - Message from ${senderNameRef.current.value} (${senderEmailRef.current.value})`,
-            text: messageRef.current.value
-        }
-        try {
-            const res = await fetch('api/contact', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(emailBody)
-            })
-            console.log('The email sent!')
-            setSent(true)
-
-        } 
-        catch (error) {
-            console.log('The email did not send...')
-        }
-
-    }
+export default function Contact() {
   return (
-    <motion.div
-    initial={{y: 100, opacity: 0 }}
-    whileInView={{y:0, opacity: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 1 }}
-    name='contact'
-    className='h-full mt-20 mx-auto p-4 w-full'
-    >
-        <div className='flex flex-col items-center justify-center'>
-            <h1 className='border-b-2 border-[#5865F2] py-4 text-2xl font-bold text-black'>Book a Call</h1>
-            <p className='mt-4 text-md text-center text-neutral-500'>SEE IF WE ARE A GREAT FIT FOR YOU</p>
+    <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-r from-lime-600 via-cyan-600 to-pink-600 relative overflow-hidden w-full">
+      <div className="absolute inset-0 bg-black/20"></div>
+
+      {/* Replaced container with w-full + max-w and centered */}
+      <div className="w-full px-4 max-w-screen-xl mx-auto text-center relative z-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
+          READY TO GET ABSOLUTELY MENTAL?! 🎊💥
+        </h2>
+        <p className="text-lg sm:text-xl text-white/90 mb-6 md:mb-8 mx-auto max-w-2xl">
+          Book DRUNKIES now and let's create a party so epic, your neighbors will be jealous they weren't invited!
+        </p>
+
+        <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row sm:justify-center">
+          <Button
+            size="lg"
+            className="bg-black text-lime-400 hover:bg-gray-900 px-6 sm:px-8 py-3 text-base sm:text-lg font-bold shadow-lg w-full sm:w-auto"
+          >
+            BOOK THE MADNESS! 🔥
+            <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-white text-white hover:bg-white/10 px-6 sm:px-8 py-3 text-base sm:text-lg font-bold w-full sm:w-auto"
+          >
+            Call (555) DRUNKIES
+          </Button>
         </div>
-        <form className='max-w-[600px] m-auto pt-4 text-black flex flex-col gap-2' onSubmit={handleSubmit}>
-                <input className=' border border-[#5865F2] p-3 rounded-lg' ref={senderNameRef} type="text" placeholder='Name'></input>
-                <input className='border border-[#5865F2] p-3 rounded-lg' ref={senderEmailRef} type="email" placeholder='Phone/Email'></input>
-            <textarea className='border border-[#5865F2] p-3 w-full rounded-lg' ref={messageRef} col="30" rows="10" placeholder="What Service are you looking for?"></textarea>
-                <a href="mailto:antdoan123@gmail.com" target="_blank" rel="noreferrer">
-                    <button className='rounded-md p-3 w-full mt-2 bg-[#5865F2] text-white font-bold text-xl shadow-lg'>Submit</button>
-                </a>
-                <p className={`pt-1 text-[#5865F2] italic ${sent ? '' : 'hidden'}`}>{"Sent! We'll get back to you shortly."}</p>
-            </form>        
-    </motion.div>
+
+        <div className="mt-8 md:mt-12 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-3 text-center">
+          <div>
+            <div className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">24/7</div>
+            <div className="text-sm sm:text-base text-white/80">Ready to Party!</div>
+          </div>
+          <div>
+            <div className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">NEW</div>
+            <div className="text-sm sm:text-base text-white/80">Fresh & Hungry!</div>
+          </div>
+          <div>
+            <div className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">100%</div>
+            <div className="text-sm sm:text-base text-white/80">INSANE Guarantee!</div>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
-
-export default Contact
