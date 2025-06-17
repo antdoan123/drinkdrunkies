@@ -12,7 +12,7 @@ export default function Contact() {
           READY TO GET ABSOLUTELY MENTAL?! 🎊💥
         </h2>
         <p className="text-lg sm:text-xl text-white/90 mb-6 md:mb-8 mx-auto max-w-2xl">
-          Book DRUNKIES now and let's create a party so epic, your neighbors will be jealous they weren't invited!
+          Book DRUNKIES now and let&apos;s create a party so epic, your neighbors will be jealous they weren&apos;t invited!
         </p>
 
         <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row sm:justify-center">

@@ -25,8 +25,8 @@ export default function Hero() {
                 </span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0">
-                We're DRUNKIES - the wildest mobile bartending crew that'll turn your boring gathering into an INSANE
-                party! Premium drinks, sick vibes, and memories you probably won't remember! 🔥🎉
+                We&apos;re DRUNKIES - the wildest mobile bartending crew that&apos;ll turn your boring gathering into an INSANE
+                party! Premium drinks, sick vibes, and memories you probably won&apos;t remember! 🔥🎉
               </p>
             </div>
 
@@ -37,7 +37,7 @@ export default function Hero() {
   className="bg-gradient-to-r from-lime-500 to-cyan-500 hover:from-lime-400 hover:to-cyan-400 text-black font-bold px-6 sm:px-8 py-3 text-base sm:text-lg shadow-lg shadow-lime-500/25 w-full sm:w-auto"
 >
   <Link href="/contact">
-    LET'S GET WASTED! 🚀
+    LET&apos;S GET WASTED! 🚀
     <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
   </Link>
 </Button>

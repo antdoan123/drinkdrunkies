@@ -18,7 +18,7 @@ export default function Feature() {
     {
       icon: Users,
       title: "WILD BARTENDERS! 🎭",
-      description: "Our crew doesn't just mix drinks - we're entertainers, hype-men, and party legends!",
+      description: "Our crew doesn&apos;t just mix drinks - we're entertainers, hype-men, and party legends!",
       gradient: "from-cyan-500 to-blue-500",
     },
     {
@@ -49,7 +49,7 @@ export default function Feature() {
             Why DRUNKIES Will Blow Your Mind 🤯
           </h2>
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto px-4">
-            We don't just serve drinks - we create LEGENDARY experiences that'll have everyone talking for YEARS!
+            We don&apos;t just serve drinks - we create LEGENDARY experiences that&apos;ll have everyone talking for YEARS!
           </p>
         </div>
 

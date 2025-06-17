@@ -11,7 +11,7 @@ export default function Footer() {
               DRUNKIES 🍻💀
             </h3>
             <p className="text-sm sm:text-base text-gray-400 mb-3 md:mb-4 max-w-md">
-              The wildest mobile bartending experience that'll turn your event into an ABSOLUTE LEGEND!
+              The wildest mobile bartending experience that&apos;ll turn your event into an ABSOLUTE LEGEND!
             </p>
             <div className="flex gap-4">
               <Button
@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-3 md:mb-4 text-sm sm:text-base">Let's Get Wild!</h4>
+            <h4 className="font-semibold text-white mb-3 md:mb-4 text-sm sm:text-base">Let&apos;s Get Wild!</h4>
             <div className="space-y-2 text-gray-400 text-sm">
               <p>(555) DRUNKIES</p>
               <p>party@drunkies.com</p>
@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-6 md:mt-8 pt-6 md:pt-8 text-center text-gray-500">
-          <p className="text-xs sm:text-sm">&copy; 2024 DRUNKIES. Let's get absolutely MENTAL! 🎉💀</p>
+          <p className="text-xs sm:text-sm">&copy; 2024 DRUNKIES. Let&apos;s get absolutely MENTAL! 🎉💀</p>
         </div>
       </div>
     </footer>
